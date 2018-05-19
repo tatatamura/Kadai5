@@ -16,10 +16,13 @@ public class IntToEng {
     	String[] Eng100 = {"hundred","thousand"};
     	
     	StringBuffer sb =new StringBuffer("");
-  	
+  	if(n==1000) {
+  		sb.append("one thousand");
+  		return sb.toString();
+  	}
     	if(n/100==1) { 
     		//100~199
-        	sb.append(Eng100[0]);   
+        	sb.append("one "+Eng100[0]+" ");   
        		n = n%100; //上一桁を消す
        		if (n==0) { //100
        			return sb.toString();
@@ -29,11 +32,14 @@ public class IntToEng {
     		//200~999
    			int x = n/100; //100の位の数
    			sb.append(Eng[x]);
-   			sb.append(Eng100[0]);
+   			sb.append(" "+Eng100[0]+" ");
    			n = n%100; //上一桁を消す
+
    			//System.out.println(n);//test
-    	}
-    	if(n<20){ 
+    	}  //ここから下で10の位以下を考えている
+    	if(n==00){
+	   //下二桁が00のときは何もしない
+    	}else if(n<20){ 
     		//1~19 
         	sb.append(Eng[n]);
     	}
@@ -43,7 +49,7 @@ public class IntToEng {
     		sb.append(Eng10[y-2]);
    			n = n%10;
    			if(n!=0) { //1の位が0の場合
-   				sb.append(Eng[n%10]);
+   				sb.append("-"+Eng[n%10]);
    			}
    		}
     	return sb.toString();
