@@ -18,24 +18,19 @@ public class IntToEng {
     	StringBuffer sb =new StringBuffer("");
   	if(n==1000) {
   		sb.append("one thousand");
-  		return sb.toString();
   	}
-    	if(n/100==1) { 
-    		//100~199
-        	sb.append("one "+Eng100[0]+" ");   
-       		n = n%100; //上一桁を消す
-       		if (n==0) { //100
-       			return sb.toString();
-       		}
+   	if(n/100==1) { 
+   		//100~199
+       	sb.append("one "+Eng100[0]+" ");   
+  		n = n%100; //上一桁を消す
+  		if (n==0) { //100
    		}
-    	else if(n/100>1) {
+ 		}else if(n/100>1) {
     		//200~999
    			int x = n/100; //100の位の数
    			sb.append(Eng[x]);
    			sb.append(" "+Eng100[0]+" ");
    			n = n%100; //上一桁を消す
-
-   			//System.out.println(n);//test
     	}  //ここから下で10の位以下を考えている
     	if(n==00){
 	   //下二桁が00のときは何もしない
