@@ -37,8 +37,7 @@ public class IntToEng {
     	}else if(n<20){ 
     		//1~19 
         	sb.append(Eng[n]);
-    	}
-   		else if(n/10>0) {
+    	}else if(n/10>0) {
    			//20~99
     		int y = n/10;
     		sb.append(Eng10[y-2]);
